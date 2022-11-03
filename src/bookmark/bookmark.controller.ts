@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { BookmarkService } from './bookmark.service';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { UpdateBookmarkDto } from './dto/update-bookmark.dto';
 
 @Controller('bookmark')
+@ApiTags('bookmark')
 export class BookmarkController {
   constructor(private readonly bookmarkService: BookmarkService) {}
 
@@ -23,7 +33,10 @@ export class BookmarkController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBookmarkDto: UpdateBookmarkDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateBookmarkDto: UpdateBookmarkDto,
+  ) {
     return this.bookmarkService.update(+id, updateBookmarkDto);
   }
 
