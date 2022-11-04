@@ -1,6 +1,7 @@
 version: '3.9'
 
 services:
+
   app:
     build: .
     container_name: nest_api_container
@@ -28,6 +29,7 @@ services:
       - .docker/dbdata:/var/lib/postgresql/data
     networks:
       - freecodecamp
+
 networks:
   freecodecamp:
     driver: bridge

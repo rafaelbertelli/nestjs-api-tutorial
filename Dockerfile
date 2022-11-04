@@ -3,7 +3,8 @@ FROM node:18-slim
 RUN apt update && apt install -y \
   git \
   ca-certificates \
-  make
+  make \
+  procps
 
 RUN npm install -g @nestjs/cli@9.1.5 
 
