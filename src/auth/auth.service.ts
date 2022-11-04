@@ -15,6 +15,8 @@ export class AuthService {
         data: {
           email: dto.email,
           hash: hash,
+          firstName: dto.firstName,
+          lastName: dto.lastName,
         },
         select: {
           id: true,
