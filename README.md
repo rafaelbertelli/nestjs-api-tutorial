@@ -1,4 +1,5 @@
 ```bash
+cp .env.example .env
 npm install
 npm run start:dev
 npm run start:prod
