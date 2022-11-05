@@ -8,11 +8,16 @@ export class PrismaService extends PrismaClient {
     super({
       datasources: {
         db: {
-          // url: 'postgresql://postgres:132@localhost:5432/nest?schema=public',
-          // url: 'postgresql://postgres:132@172.17.0.1:5432/nest?schema=public',
           url: config.get('DATABASE_URL'),
         },
       },
     });
+  }
+
+  cleanDb() {
+    return this.$transaction([
+      this.bookmark.deleteMany(),
+      this.user.deleteMany(),
+    ]);
   }
 }
